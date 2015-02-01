@@ -49,6 +49,7 @@ public class GoogleDriveFileSyncManager implements FileSyncManager {
 		if (fileId == null) {
 			throw new FileNotFoundException();
 		} else {
+			//System.out.println(fileId + " to delete");
 			service.files().delete(fileId).execute();
 		}
 	}
@@ -59,6 +60,9 @@ public class GoogleDriveFileSyncManager implements FileSyncManager {
 			FileList files = request.execute();
 			for(File file : files.getItems()) {
 				if (file.getTitle().equals(fileName)) {
+					//System.out.println(file.getId());
+					//System.out.println(file.getTitle());
+					//System.out.println(file.getDownloadUrl());
 					return file.getId();
 				}
 			}

@@ -53,6 +53,7 @@ public class WatchDir {
     /**
      * Creates a WatchService and registers the given directory
      */
+    
     public WatchDir(Path dir, FileSyncManager fileSyncManager) throws IOException {
         this.watcher = FileSystems.getDefault().newWatchService();
         this.fileSyncManager = fileSyncManager;
@@ -62,6 +63,7 @@ public class WatchDir {
 
         // enable trace after initial registration
         this.trace = true;
+        
     }
 
     /**
